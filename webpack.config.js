@@ -46,6 +46,10 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/ //忽略node_modules文件夹下的文件，不用转码
+            },
+            {
+                test: /\.(png|jpg|gif|svg)$/,
+                loader: 'url-loader'
             }
         ]
     }
