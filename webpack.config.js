@@ -49,7 +49,29 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|gif|svg)$/,
-                loader: 'url-loader'
+                loader: 'url-loader',
+                options: {
+                    limit: 10000,
+                    name: '[name].[ext]?[hash]'
+                }
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                options: {
+                    loaders: {
+                        'scss': [
+                            'vue-style-loader',
+                            'css-loader',
+                            'sass-loader'
+                        ],
+                        'sass': [
+                            'vue-style-loader',
+                            'css-loader',
+                            'sass-loader?indentedSyntax'
+                        ]
+                    }
+                }
             }
         ]
     }
